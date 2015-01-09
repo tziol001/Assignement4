@@ -26,9 +26,9 @@ LT5 <- list.files ('data/LT51980241990098-SC20150107121947/', pattern = glob2rx(
 # calculate ndvi
 ndvi1990 <- ndviCalc(LT5,"TM")
 ndvi2014 <- ndviCalc(LC8,"LC")
-ndvi2014 <- ndviCalc(LC8,"Hyperion")
+ndvi2014 <- ndviCalc(LC8,"Hyperion") # check what happens when the sensor is neither TM nor LC
 
-# Applying a cloud mask
+# Applying a cloud mask, band 1 corresponds with cloud mask for both Landsat 5 and 8
 cf1990 <- overlay(x=ndvi1990, y=raster(LT5[1]), fun=cloudMask)
 cf2014 <- overlay(x=ndvi2014, y=raster(LC8[1]), fun=cloudMask)
 
@@ -38,7 +38,7 @@ change <-ndviTrend(cf1990,cf2014)
 #plot some results
 plot_result(cf1990,cf2014, change)
 
-# kml file
+# create a kml file
 ndviCampus <- projectRaster(change, crs='+proj=longlat')
 KML(x=ndviCampus, filename='wageningenNDVI.kml')
 ****************************************************
