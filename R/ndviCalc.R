@@ -2,7 +2,7 @@
 # Date: 8 January 2015
 
 # calculate the value of NDVI and return a RasterLayer. The function supports only Landsat 5 and 8.
-
+## NDVI = (NIR-R)/(NIR+R)
 ndviCalc <- function(x, sensor) { 
   # @param sensor Character. Sensor can be either "TM"or "LC" for Landsat 5 and Landsat 8, respectively.
   if(sensor == "TM") { 

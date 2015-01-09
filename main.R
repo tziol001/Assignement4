@@ -32,7 +32,7 @@ ndvi2014 <- ndviCalc(LC8,"Hyperion") # check what happens when the sensor is nei
 cf1990 <- overlay(x=ndvi1990, y=raster(LT5[1]), fun=cloudMask)
 cf2014 <- overlay(x=ndvi2014, y=raster(LC8[1]), fun=cloudMask)
 
-#calculate the change between two years
+#calculate the change between two years (ΔNDVI)
 change <-ndviTrend(cf1990,cf2014)
 
 #plot some results

@@ -23,7 +23,7 @@ colnames(df) <- c("Longitude", "Latitude", "Value")
 #crate map with ggplot
 ggplot(aes(x = Longitude, y = Latitude, fill = Value), data = df) + 
   geom_raster() + coord_equal() + 
-  ggtitle("Normalized Difference Vegetation Index 2014/04/19 - 1990/04/08") + 
+  ggtitle("Normalized Difference Vegetation Index 1990/04/08 - 2014/04/19 ") + 
   theme(plot.title = element_text(lineheight=.8, face="bold"))+
   scale_fill_continuous(low="red", high="green", limits=c(-1.5,1.5)) +
   labs(fill = "NDVI")  +
